@@ -144,6 +144,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     hci_qcomm_init
 
+# Doze mode
+PRODUCT_PACKAGES += \
+    Fusion3Doze
+
 # GPS
 PRODUCT_PACKAGES += \
     libgps.utils \
