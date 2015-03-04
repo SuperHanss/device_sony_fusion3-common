@@ -108,6 +108,9 @@ TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/msm_hsusb/gadget/lun%d/
 # Include an expanded selection of fonts
 EXTENDED_FONT_FOOTPRINT := true
 
+# Boot animation
+TARGET_BOOTANIMATION_HALF_RES := true
+
 # SELinux
 include device/qcom/sepolicy/sepolicy.mk
 
