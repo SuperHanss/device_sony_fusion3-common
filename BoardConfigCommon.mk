@@ -111,7 +111,6 @@ BOARD_SEPOLICY_UNION += \
     property.te \
     radio.te \
     recovery.te \
-    system_app.te \
     system_monitor.te \
     system_server.te \
     tad.te \
