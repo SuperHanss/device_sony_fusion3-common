@@ -88,9 +88,6 @@ TARGET_RECOVERY_FSTAB := device/sony/fusion3-common/rootdir/fstab.qcom
 # Vold
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/msm_hsusb/gadget/lun%d/file
 
-# Boot animation
-TARGET_BOOTANIMATION_HALF_RES := true
-
 # SELinux
 include device/qcom/sepolicy/sepolicy.mk
 
