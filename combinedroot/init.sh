@@ -53,14 +53,9 @@ if [ $? -eq 42 ] || busybox grep -q warmboot=0x77665502 /proc/cmdline ; then
 	# recovery ramdisk
 	busybox mknod -m 600 ${BOOTREC_FOTA_NODE}
 	busybox mount -o remount,rw /
+	busybox ln -sf /sbin/busybox /sbin/sh
 	extract_elf_ramdisk -i ${BOOTREC_FOTA} -o /sbin/ramdisk-recovery.cpio -t / -c
-	if [ $? -eq 255 ]; then
-		# Try again!
-		busybox echo 'Unable to extract FOTAKernel ramdisk! Retrying...' >>boot.txt
-		extract_elf_ramdisk -i ${BOOTREC_FOTA} -o /sbin/ramdisk-recovery.cpio -t / -d
-		busybox mv /sbin/ramdisk-recovery.cpio /sbin/ramdisk-recovery.cpio.lzma
-		busybox lzma -d /sbin/ramdisk-recovery.cpio.lzma
-	fi
+	busybox rm /sbin/sh
 	load_image=/sbin/ramdisk-recovery.cpio
 else
 	busybox echo 'ANDROID BOOT' >>boot.txt
