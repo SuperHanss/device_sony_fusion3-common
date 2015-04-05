@@ -147,16 +147,6 @@ PRODUCT_PACKAGES += \
     com.android.future.usb.accessory \
     p2p_supplicant.conf
 
-# Live Wallpapers
-PRODUCT_PACKAGES += \
-    LiveWallpapers \
-    LiveWallpapersPicker \
-    VisualizationWallpapers \
-
-# Filesystem management tools
-PRODUCT_PACKAGES += \
-    e2fsck
-
 # Custom init / uevent
 PRODUCT_COPY_FILES += \
     $(COMMON_PATH)/rootdir/init.qcom.rc:root/init.qcom.rc \
