@@ -47,6 +47,12 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/com.nxp.mifare.xml:system/etc/permissions/com.nxp.mifare.xml
 
 # GPS
+PRODUCT_PACKAGES += \
+    gps.msm8960 \
+    libgps.utils \
+    libloc_adapter \
+    libloc_eng
+
 PRODUCT_COPY_FILES += \
     $(COMMON_PATH)/rootdir/system/etc/gps.conf:system/etc/gps.conf
 
