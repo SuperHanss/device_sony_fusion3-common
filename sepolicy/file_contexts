@@ -36,3 +36,7 @@
 
 # mdm
 /dev/block/platform/msm_sdcc.1/by-name/m9kefs(.*)        u:object_r:efs_boot_dev:s0
+
+# IR blaster
+/sys/devices/platform/ir_remote_control/enable        u:object_r:sysfs_ir_remote_control:s0
+/dev/ttyHSL2                                          u:object_r:ir_remote_serial_device:s0
