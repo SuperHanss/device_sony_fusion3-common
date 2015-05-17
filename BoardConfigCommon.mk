@@ -36,10 +36,6 @@ BOARD_KERNEL_CMDLINE  := console=ttyHSL0,115200,n8 androidboot.hardware=qcom use
 BOARD_MKBOOTIMG_ARGS  := --ramdisk_offset 0x02000000
 TARGET_KERNEL_SOURCE  := kernel/sony/apq8064
 
-# Toolchain
-KERNEL_TOOLCHAIN_PREFIX := arm-cortex_a15-linux-gnueabihf-
-KERNEL_TOOLCHAIN := "$(ANDROID_BUILD_TOP)/prebuilts/gcc/linux-x86/arm/arm-eabi-4.9-linaro/bin/"
-
 # Enable dex-preoptimization to speed up first boot
 ifeq ($(HOST_OS),linux)
     WITH_DEXPREOPT := true
