@@ -1,5 +1,6 @@
 recovery_only(`
 
+permissive recovery;
 allow recovery rootfs:dir { create };
 
 allow recovery sdcard_posix:file { getattr open read };
