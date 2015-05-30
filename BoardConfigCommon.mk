@@ -12,9 +12,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# Inherit common configurations
-include device/sony/common/BoardConfigCommon.mk
-include device/sony/msm8960-common/BoardConfigCommon.mk
+TARGET_NO_BOOTLOADER := true
+TARGET_NO_RADIOIMAGE := true
+BOARD_HAS_NO_MISC_PARTITION := true
 
 # Include path
 TARGET_SPECIFIC_HEADER_PATH += device/sony/fusion3-common/include
@@ -28,7 +28,16 @@ BOARD_VENDOR_PLATFORM := fusion3
 BOARD_LIB_DUMPSTATE := libdumpstate.sony
 
 # Architecture
+TARGET_ARCH := arm
+TARGET_CPU_ABI := armeabi-v7a
+TARGET_CPU_ABI2 := armeabi
+TARGET_ARCH_VARIANT := armv7-a-neon
+TARGET_CPU_SMP := true
 TARGET_CPU_VARIANT := krait
+
+# PowerHAL
+TARGET_POWERHAL_VARIANT := qcom
+CM_POWERHAL_EXTENSION := qcom
 
 # Blob compatibility
 TARGET_RELEASE_CPPFLAGS += -DNEEDS_VECTORIMPL_SYMBOLS
@@ -43,15 +52,21 @@ TARGET_KERNEL_SOURCE  := kernel/sony/apq8064
 # QCOM hardware
 BOARD_USES_QCOM_HARDWARE := true
 
+USE_OPENGL_RENDERER := true
+TARGET_USES_ION := true
+TARGET_USES_C2D_COMPOSITION := true
+
 # Audio
 BOARD_USES_ALSA_AUDIO := true
 
 # Bluetooth
+BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_QCOM := true
 BLUETOOTH_HCI_USE_MCT := true
 
 # Camera
 USE_DEVICE_SPECIFIC_CAMERA := true
+TARGET_PROVIDES_CAMERA_HAL := true
 
 # CM Hardware
 BOARD_HARDWARE_CLASS := device/sony/fusion3-common/cmhw
@@ -71,6 +86,13 @@ BOARD_CHARGER_ENABLE_SUSPEND := true
 RED_LED_PATH := /sys/class/leds/lm3533-red/brightness
 GREEN_LED_PATH := /sys/class/leds/lm3533-green/brightness
 BLUE_LED_PATH := /sys/class/leds/lm3533-blue/brightness
+
+# RIL
+BOARD_PROVIDES_LIBRIL := true
+BOARD_RIL_CLASS := ../../../device/sony/fusion3-common/ril/
+
+# Lights HAL
+TARGET_PROVIDES_FUSION3_LIBLIGHT := true
 
 # Sensors
 SOMC_CFG_SENSORS := true
@@ -102,6 +124,8 @@ TARGET_USERIMAGES_USE_F2FS := true
 TARGET_USES_LOGD := false
 
 # Recovery
+TARGET_NO_SEPARATE_RECOVERY := true
+BOARD_CUSTOM_BOOTIMG := true
 BOARD_CUSTOM_BOOTIMG_MK := device/sony/fusion3-common/custombootimg.mk
 TARGET_RECOVERY_FSTAB := device/sony/fusion3-common/rootdir/fstab.qcom
 TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
@@ -112,6 +136,10 @@ TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/msm_hsusb/gadget/lun%d/
 
 # Include an expanded selection of fonts
 EXTENDED_FONT_FOOTPRINT := true
+
+# Webkit
+ENABLE_WEBGL := true
+TARGET_FORCE_CPU_UPLOAD := true
 
 # TWRP
 RECOVERY_GRAPHICS_USE_LINELENGTH := true
