@@ -49,7 +49,6 @@ TARGET_NO_RPC := true
 # Graphics
 BOARD_EGL_CFG := device/sony/fusion3-common/rootdir/system/lib/egl/egl.cfg
 TARGET_DISPLAY_USE_RETIRE_FENCE := true
-OVERRIDE_RS_DRIVER := libRSDriver_adreno.so
 HAVE_ADRENO_SOURCE := false
 
 # RIL
