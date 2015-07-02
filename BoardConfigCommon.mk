@@ -26,7 +26,6 @@ BOARD_VENDOR_PLATFORM := fusion3
 BOARD_LIB_DUMPSTATE := libdumpstate.sony
 
 # Blob compatibility
-BOARD_USES_LEGACY_MMAP := true
 TARGET_RELEASE_CPPFLAGS += -DNEEDS_VECTORIMPL_SYMBOLS
 
 # Kernel information
