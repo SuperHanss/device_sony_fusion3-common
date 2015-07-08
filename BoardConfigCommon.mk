@@ -56,7 +56,6 @@ BOARD_CHARGER_ENABLE_SUSPEND := true
 RED_LED_PATH := /sys/class/leds/lm3533-red/brightness
 GREEN_LED_PATH := /sys/class/leds/lm3533-green/brightness
 BLUE_LED_PATH := /sys/class/leds/lm3533-blue/brightness
-BACKLIGHT_PATH := /sys/class/leds/lm3533-lcd-bl/brightness
 
 # RIL
 BOARD_PROVIDES_LIBRIL := true
