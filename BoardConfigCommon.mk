@@ -12,7 +12,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# Inherit common configuration
+# Inherit common configurations
+include device/sony/common/BoardConfigCommon.mk
 include device/sony/msm8960-common/BoardConfigCommon.mk
 
 # Include path
@@ -22,8 +23,12 @@ TARGET_SPECIFIC_HEADER_PATH += device/sony/fusion3-common/include
 TARGET_BOOTLOADER_BOARD_NAME := MSM8960
 
 # Platform
+TARGET_BOARD_PLATFORM := msm8960
 BOARD_VENDOR_PLATFORM := fusion3
 BOARD_LIB_DUMPSTATE := libdumpstate.sony
+
+# Architecture
+TARGET_CPU_VARIANT := krait
 
 # Blob compatibility
 TARGET_RELEASE_CPPFLAGS += -DNEEDS_VECTORIMPL_SYMBOLS
@@ -34,6 +39,16 @@ BOARD_KERNEL_PAGESIZE := 2048
 BOARD_KERNEL_CMDLINE  := console=ttyHSL0,115200,n8 androidboot.hardware=qcom user_debug=22 msm_rtb.filter=0x3F ehci-hcd.park=3 androidboot.bootdevice=msm_sdcc.1
 BOARD_MKBOOTIMG_ARGS  := --ramdisk_offset 0x02000000
 TARGET_KERNEL_SOURCE  := kernel/sony/apq8064
+
+# QCOM hardware
+BOARD_USES_QCOM_HARDWARE := true
+
+# Audio
+BOARD_USES_ALSA_AUDIO := true
+
+# Bluetooth
+BOARD_HAVE_BLUETOOTH_QCOM := true
+BLUETOOTH_HCI_USE_MCT := true
 
 # Camera
 USE_DEVICE_SPECIFIC_CAMERA := true
@@ -97,6 +112,9 @@ RECOVERY_VARIANT := twrp
 
 # Vold
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/msm_hsusb/gadget/lun%d/file
+
+# Include an expanded selection of fonts
+EXTENDED_FONT_FOOTPRINT := true
 
 # TWRP
 RECOVERY_GRAPHICS_USE_LINELENGTH := true
