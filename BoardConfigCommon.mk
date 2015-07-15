@@ -126,6 +126,7 @@ BOARD_CUSTOM_BOOTIMG := true
 BOARD_CUSTOM_BOOTIMG_MK := device/sony/fusion3-common/custombootimg.mk
 TARGET_RECOVERY_FSTAB := device/sony/fusion3-common/rootdir/fstab.qcom
 TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
+BOARD_USE_CUSTOM_RECOVERY_FONT := \"roboto_23x41.h\"
 RECOVERY_VARIANT := twrp
 
 # Vold
