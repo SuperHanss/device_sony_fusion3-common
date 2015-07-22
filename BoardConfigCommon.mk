@@ -134,6 +134,9 @@ TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/msm_hsusb/gadget/lun%d/
 # Include an expanded selection of fonts
 EXTENDED_FONT_FOOTPRINT := true
 
+# Memory allocation
+MALLOC_IMPL := dlmalloc
+
 # Webkit
 ENABLE_WEBGL := true
 TARGET_FORCE_CPU_UPLOAD := true
