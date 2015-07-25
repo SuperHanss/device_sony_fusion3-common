@@ -132,6 +132,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     extract_elf_ramdisk
 
+# ART
+PRODUCT_PACKAGES += \
+    dalvik.vm.dex2oat-swap=false
+
 # Audio
 PRODUCT_PACKAGES += \
     audio.primary.msm8960 \
