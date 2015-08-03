@@ -8,6 +8,7 @@ allow updatemiscta init:unix_stream_socket connectto;
 allow updatemiscta default_prop:property_service set;
 
 allow updatemiscta property_socket:sock_file { write };
+allow updatemiscta updatemiscta_prop:property_service set;
 
 unix_socket_connect(updatemiscta, property, init)
 
