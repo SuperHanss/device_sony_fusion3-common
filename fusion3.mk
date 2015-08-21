@@ -138,7 +138,6 @@ PRODUCT_PACKAGES += \
     audio.a2dp.default \
     audio.usb.default \
     audio.r_submix.default \
-    libaudio-resampler \
     tinymix
 
 # BT
@@ -240,9 +239,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Audio
 PRODUCT_PROPERTY_OVERRIDES += \
-    persist.audio.dualmic.config=endfire \
     persist.audio.fluence.voicecall=true \
-    lpa.decode=true
+    persist.audio.fluence.voicerec=false \
+    persist.audio.fluence.speaker=true \
+    media.aac_51_output_enabled=true
 
 # Bluetooth
 PRODUCT_PROPERTY_OVERRIDES += \
