@@ -21,3 +21,5 @@ allow mediaserver shell_data_file:dir search;
 # ALS
 allow mediaserver input_device:chr_file r_file_perms;
 unix_socket_connect(mediaserver, illumination, illumination)
+
+allow mediaserver mediaserver_tmpfs:file { read write execute };
