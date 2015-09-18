@@ -101,10 +101,6 @@ PRODUCT_PACKAGES += \
     Tag \
     com.android.nfc_extras
 
-# Recovery
-PRODUCT_PACKAGES += \
-    keycheck
-
 # Power
 PRODUCT_PACKAGES += \
     power.qcom
@@ -130,7 +126,8 @@ PRODUCT_COPY_FILES += \
 
 # Recovery
 PRODUCT_PACKAGES += \
-    extract_elf_ramdisk
+    extract_elf_ramdisk \
+    keycheck
 
 # Audio
 PRODUCT_PACKAGES += \
@@ -169,13 +166,13 @@ PRODUCT_BOOT_JARS += \
 PRODUCT_PACKAGES += \
     lights.qcom
 
-# Sensors
-PRODUCT_PACKAGES += \
-    sensors.msm8960
-
 # WIFI MAC update
 PRODUCT_PACKAGES += \
     mac-update
+
+# Thermal management
+PRODUCT_PACKAGES += \
+    thermanager
 
 # Key layouts
 PRODUCT_COPY_FILES += \
@@ -208,6 +205,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(COMMON_PATH)/rootdir/init.qcom.rc:root/init.qcom.rc \
     $(COMMON_PATH)/rootdir/ueventd.qcom.rc:root/ueventd.qcom.rc \
+    $(COMMON_PATH)/rootdir/init.sony.rc:root/init.sony.rc \
     $(COMMON_PATH)/rootdir/init.recovery.qcom.rc:root/init.recovery.qcom.rc \
     $(COMMON_PATH)/rootdir/system/etc/init.qcom.bt.sh:system/etc/init.qcom.bt.sh
 
@@ -219,11 +217,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(COMMON_PATH)/rootdir/sbin/wait4tad_static:root/sbin/wait4tad_static \
     $(COMMON_PATH)/rootdir/system/bin/tad_static:system/bin/tad_static
-
-# Thermal monitor configuration
-PRODUCT_COPY_FILES += \
-    $(COMMON_PATH)/rootdir/system/etc/thermald.conf:system/etc/thermald.conf \
-    $(COMMON_PATH)/rootdir/system/etc/disable_msm_thermal.sh:system/etc/disable_msm_thermal.sh
 
 # Bootlogo
 PRODUCT_COPY_FILES += \
@@ -256,6 +249,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.input.noresample=1
 
+# I/O scheduler
+PRODUCT_PROPERTY_OVERRIDES += \
+    sys.io.scheduler=bfq
+
 # OpenGL ES 3.0
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.opengles.version=196608
@@ -266,7 +263,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # QC Perf
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.vendor.extension_library=/vendor/lib/libqc-opt.so
+    ro.vendor.extension_library=/vendor/lib/libqti-perfd-client.so
 
 # RIL
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -283,9 +280,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Hostapd
 PRODUCT_COPY_FILES += \
-    $(COMMON_PATH)/rootdir/system/etc/hostapd/hostapd_default.conf:system/etc/hostapd/hostapd_default.conf \
-    $(COMMON_PATH)/rootdir/system/etc/hostapd/hostapd.accept:system/etc/hostapd/hostapd.accept \
-    $(COMMON_PATH)/rootdir/system/etc/hostapd/hostapd.deny:system/etc/hostapd/hostapd.deny
+    $(COMMON_PATH)/rootdir/system/etc/hostapd/hostapd_default.conf:system/etc/hostapd/hostapd_default.conf
 
 # SoftAP
 PRODUCT_PACKAGES += \

@@ -27,6 +27,9 @@ TARGET_BOARD_PLATFORM := msm8960
 BOARD_VENDOR_PLATFORM := fusion3
 BOARD_LIB_DUMPSTATE := libdumpstate.sony
 
+# Bionic
+MALLOC_IMPL := dlmalloc
+
 # Architecture
 TARGET_ARCH := arm
 TARGET_CPU_ABI := armeabi-v7a
@@ -38,9 +41,6 @@ TARGET_CPU_VARIANT := krait
 # PowerHAL
 TARGET_POWERHAL_VARIANT := qcom
 CM_POWERHAL_EXTENSION := qcom
-
-# Blob compatibility
-TARGET_RELEASE_CPPFLAGS += -DNEEDS_VECTORIMPL_SYMBOLS
 
 # Kernel information
 BOARD_KERNEL_BASE     := 0x80200000
@@ -94,14 +94,6 @@ BOARD_RIL_CLASS := ../../../device/sony/fusion3-common/ril/
 # Lights HAL
 TARGET_PROVIDES_FUSION3_LIBLIGHT := true
 
-# Sensors
-SOMC_CFG_SENSORS := true
-SOMC_CFG_SENSORS_ACCEL_BMA250NA_INPUT := yes
-SOMC_CFG_SENSORS_COMPASS_AK8963 := yes
-SOMC_CFG_SENSORS_GYRO_MPU3050 := yes
-SOMC_CFG_SENSORS_LIGHT_LM3533 := yes
-SOMC_CFG_SENSORS_PROXIMITY_APDS9702 := yes
-
 # Wifi
 BOARD_HAS_QCOM_WLAN              := true
 BOARD_WLAN_DEVICE                := qcwcn
@@ -134,9 +126,6 @@ TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/msm_hsusb/gadget/lun%d/
 
 # Include an expanded selection of fonts
 EXTENDED_FONT_FOOTPRINT := true
-
-# Memory allocation
-MALLOC_IMPL := dlmalloc
 
 # Webkit
 ENABLE_WEBGL := true
@@ -182,16 +171,17 @@ BOARD_SEPOLICY_UNION += \
     mediaserver.te \
     mpdecision.te \
     netmgrd.te \
+    property.te \
     radio.te \
     recovery.te \
     sdcardd.te \
     servicemanager.te \
     shell.te \
     system_app.te \
-    system_monitor.te \
     system_server.te \
     tad.te \
     ta_qmi_client.te \
+    thermanager.te \
     updatemiscta.te \
     wpa.te \
     zygote.te
