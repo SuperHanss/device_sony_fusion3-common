@@ -196,10 +196,6 @@ PRODUCT_PACKAGES += \
     com.android.future.usb.accessory \
     p2p_supplicant.conf
 
-# For formatting data after unlock
-PRODUCT_PACKAGES += \
-    setup_fs
-
 # Camera wrapper
 PRODUCT_PACKAGES += \
     camera.qcom
