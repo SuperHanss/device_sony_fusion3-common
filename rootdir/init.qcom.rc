@@ -273,6 +273,12 @@ on post-fs-data
     mkdir /dev/socket/mpdecision 0770 system system
     chmod 2770 /dev/socket/mpdecision
 
+    # Create PERFD deamon related dirs
+    mkdir /data/misc/perfd 0755 root system
+    chmod 2755 /data/misc/perfd
+    mkdir /data/system/perfd 0770 root system
+    chmod 2770 /data/system/perfd
+
     # Kgsl governors
     chown root system /sys/devices/platform/kgsl-3d0.0/kgsl/kgsl-3d0/pwrscale/policy
     chmod 0664 /sys/devices/platform/kgsl-3d0.0/kgsl/kgsl-3d0/pwrscale/policy
