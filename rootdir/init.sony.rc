@@ -1,4 +1,19 @@
 on boot
+    # LM356x/cameralight
+    chown system camera /sys/devices/i2c-0/0-0053/torch_enable
+    chmod 660 /sys/devices/i2c-0/0-0053/torch_enable
+    chown system camera /sys/devices/i2c-0/0-0053/torch_current
+    chmod 660 /sys/devices/i2c-0/0-0053/torch_current
+    chown system system /sys/devices/i2c-0/0-0053/privacy_enable
+    chown system system /sys/devices/i2c-0/0-0053/privacy_current
+    chown system camera /sys/devices/i2c-0/0-0053/flash_enable
+    chown system camera /sys/devices/i2c-0/0-0053/flash_duration
+    chown system camera /sys/devices/i2c-0/0-0053/flash_synchronization
+    chmod 660 /sys/devices/i2c-0/0-0053/flash_synchronization
+    chown system camera /sys/devices/i2c-0/0-0053/flash_current
+    chmod 660 /sys/devices/i2c-0/0-0053/flash_current
+    chown system camera /sys/devices/i2c-0/0-0053/status
+
     # Invensense sensor HAL interfaces
     chown system input /sys/bus/iio/devices/iio:device0/accl_enable
     chown system input /sys/bus/iio/devices/iio:device0/accl_matrix
@@ -107,6 +122,10 @@ on post-fs
     mkdir /data/hdcp/dxhdcp2/ 0700 system system
 
 on post-fs-data
+    # Owner for the proximity sensor
+    chown system system /sys/devices/i2c-2/2-0054/threshold
+    chown system system /sys/devices/i2c-2/2-0054/nburst
+
     # Owner for the light sensor
     chown system system /sys/devices/i2c-0/0-0036/als_enable
     chown system system /sys/devices/i2c-0/0-0036/als_result
