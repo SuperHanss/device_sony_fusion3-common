@@ -17,11 +17,6 @@ bin/ta_param_loader
 bin/ta_qmi_client
 bin/usbhub
 bin/usbhub_init
-etc/firmware/a225p5_pm4.fw
-etc/firmware/a225_pfp.fw
-etc/firmware/a225_pm4.fw
-etc/firmware/a300_pfp.fw
-etc/firmware/a300_pm4.fw
 etc/firmware/acdb.mbn
 etc/firmware/dxhdcp2.b00
 etc/firmware/dxhdcp2.b01
@@ -161,6 +156,8 @@ vendor/camera/SOI13BS2.dat
 vendor/camera/SOI13BS2_DW9735.dat
 vendor/camera/SOI13BS2_IMX135.dat
 vendor/camera/SOI13BS9.dat
+vendor/firmware/a300_pfp.fw
+vendor/firmware/a300_pm4.fw
 vendor/firmware/keymaster/keymaster.b00
 vendor/firmware/keymaster/keymaster.b01
 vendor/firmware/keymaster/keymaster.b02
@@ -171,10 +168,13 @@ vendor/lib/egl/eglsubAndroid.so
 vendor/lib/egl/libEGL_adreno.so
 vendor/lib/egl/libGLESv1_CM_adreno.so
 vendor/lib/egl/libGLESv2_adreno.so
+vendor/lib/egl/libplayback_adreno.so
 vendor/lib/egl/libq3dtools_adreno.so
 vendor/lib/mediadrm/libwvdrmengine.so
 vendor/lib/libadreno_utils.so
+vendor/lib/libbccQTI.so
 vendor/lib/libC2D2.so
+vendor/lib/libc2d30.so
 vendor/lib/libc2d30-a3xx.so
 vendor/lib/libCB.so
 vendor/lib/libdiag.so
@@ -189,7 +189,9 @@ vendor/lib/libqmi_common_so.so
 vendor/lib/libqmi_csi.so
 vendor/lib/libqmi_encdec.so
 vendor/lib/libqti-perfd-client.so
-vendor/lib/libsc-a2xx.so
+vendor/lib/librs_adreno.so
+vendor/lib/librs_adreno_sha1.so
+vendor/lib/libRSDriver_adreno.so
 vendor/lib/libsc-a3xx.so
 vendor/lib/libwvdrm_L1.so
 vendor/lib/libwvm.so
