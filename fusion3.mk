@@ -291,5 +291,9 @@ PRODUCT_PACKAGES += \
     wpa_supplicant \
     wpa_supplicant.conf
 
+# Stlport
+PRODUCT_PACKAGES += \
+    libstlport
+
 # Include non-opensource parts
 $(call inherit-product, vendor/sony/fusion3-common/fusion3-common-vendor.mk)
