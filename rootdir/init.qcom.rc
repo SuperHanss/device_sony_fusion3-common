@@ -292,6 +292,7 @@ on charger
     write /sys/devices/system/cpu/cpu1/online 0
     write /sys/devices/system/cpu/cpu2/online 0
     write /sys/devices/system/cpu/cpu3/online 0
+    start mpdecision
 
 on property:sys.boot_completed=1
     # Enable Power modes and set the CPU Freq Sampling rates
@@ -335,6 +336,7 @@ on property:sys.boot_completed=1
     write /sys/devices/system/cpu/cpu1/cpufreq/scaling_min_freq 384000
     write /sys/devices/system/cpu/cpu2/cpufreq/scaling_min_freq 384000
     write /sys/devices/system/cpu/cpu3/cpufreq/scaling_min_freq 384000
+    start mpdecision
 
 on property:init.svc.wpa_supplicant=stopped
     stop dhcpcd
@@ -482,7 +484,7 @@ service thermanager /system/bin/thermanager /system/etc/thermanager.xml
 service mpdecision /system/bin/mpdecision --no_sleep --avg_comp
     class main
     user root
-    group root
+    group root system
     disabled
 
 # bugreport is triggered by holding down volume down, volume up and power
