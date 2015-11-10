@@ -123,7 +123,6 @@ lib/libmmstillomx.so
 lib/libmpl.so
 lib/libMPU3050.so
 lib/libnetmgr.so
-lib/liboemcrypto.so
 lib/libpin-cache.so
 lib/libprotobuf-c.so
 lib/libqcci_legacy.so
