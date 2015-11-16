@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2014 The CyanogenMod Project
+ * Copyright (C) 2015 The CyanogenMod Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,13 +16,34 @@
 
 package com.android.internal.telephony;
 
-import android.os.SystemProperties;
+import static com.android.internal.telephony.RILConstants.*;
+
 import android.content.Context;
+import android.os.AsyncResult;
+import android.os.Message;
+import android.os.Parcel;
+import android.os.SystemProperties;
+import android.util.Log;
 
+import com.android.internal.telephony.RILConstants;
+
+/**
+ * Custom Qualcomm RIL for Sony
+ *
+ * {@hide}
+ */
 public class SonyRIL extends RIL implements CommandsInterface {
-    public SonyRIL(Context context, int networkMode, int cdmaSubscription, Integer instanceId) {
-        super(context, networkMode, cdmaSubscription, instanceId);
 
-        mQANElements = SystemProperties.getInt("ro.ril.telephony.mqanelements", 5);
+    static final String LOG_TAG = "SonyRIL";
+
+    public SonyRIL(Context context, int preferredNetworkType,
+            int cdmaSubscription, Integer instanceId) {
+        this(context, preferredNetworkType, cdmaSubscription);
+        mQANElements = 5;
     }
+
+    public SonyRIL(Context context, int networkMode, int cdmaSubscription) {
+        super(context, networkMode, cdmaSubscription);
+    }
+
 }
